@@ -1,0 +1,783 @@
+/* ==========================================================
+   Master Speaking English — Design System
+   Single source of truth for colors, typography, spacing,
+   and the shared components used across all pages.
+   ========================================================== */
+
+:root {
+  /* Colors */
+  --primary: #0b9eec;
+  --primary-dark: #0a8ad0;
+  --primary-deep: #0876b0;
+  --primary-soft: #e6f4fd;
+  --primary-border: #b9dcf8;
+
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #222222;
+  --text-muted: #555555;
+  --text-faint: #888888;
+
+  --border: #d1d5db;
+
+  --error: #dc2626;
+  --error-soft: #fff3f3;
+  --success: #059669;
+  --success-soft: #d1fae5;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-pop: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  /* Typography */
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   SHARED LAYOUT
+   ========================================================== */
+
+/* Vertically centers a card (auth / message pages) */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ==========================================================
+   CARD
+   ========================================================== */
+
+.card {
+  background: var(--surface);
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.card--wide {
+  max-width: 520px;
+}
+
+.card .page-title {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card>p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+.card>p.email {
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* ==========================================================
+   TYPOGRAPHY HELPERS
+   ========================================================== */
+
+.page-title {
+  font-size: 32px;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* ==========================================================
+   ICON
+   ========================================================== */
+
+.icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+}
+
+.icon--error {
+  background: var(--error);
+}
+
+/* ==========================================================
+   FORM
+   ========================================================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+}
+
+.field-error {
+  min-height: 18px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: var(--error);
+  font-size: 14px;
+  text-align: left;
+}
+
+.general-error {
+  color: var(--error);
+  text-align: center;
+  min-height: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+
+
+.loading-bar--small {
+  height: 34px;
+  min-width: 0;
+  padding: 6px 14px;
+  gap: 4px;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.loading-bar--small span {
+  width: 4px;
+}
+
+.small-loading-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px auto;
+}
+
+.small-loading-circle span {
+  width: 9px;
+  height: 9px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: Loading 1.2s infinite ease-in-out;
+}
+
+.small-loading-circle span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.small-loading-circle span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes Loading {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--surface);
+}
+
+.btn--primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn--outline {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn--outline:hover {
+  background: var(--primary-soft);
+}
+
+.form .btn--outline {
+  margin-top: 10px;
+}
+
+.form .btn--primary {
+  margin-top: 18px;
+}
+
+.btn--submit {
+  margin-top: 25px;
+}
+
+.card .btn--link {
+  margin-top: 30px;
+}
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+.form .link {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.form .link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   CARD MISC
+   ========================================================== */
+
+.tip {
+  margin-top: 25px;
+  padding: 16px;
+  background: var(--primary-soft);
+  border-radius: 10px;
+  color: var(--text);
+  text-align: left;
+  line-height: 1.6;
+}
+
+.message {
+  margin-top: 25px;
+  padding: 16px;
+  background: var(--error-soft);
+  border-radius: 10px;
+  color: var(--text);
+}
+
+.card-footer {
+  margin-top: 28px;
+  color: var(--text-faint);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.loading-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px auto;
+}
+
+.loading-circle span {
+  width: 9px;
+  height: 9px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: loadingcircle 1.2s infinite ease-in-out;
+}
+
+.loading-circle span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-circle span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingcircle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+.loading-circle {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.test-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 10%;
+  background-color: var(--primary-soft);
+  color: var(--primary);
+}
+
+.test-page ol li {
+  padding: 5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.add-coins-page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-coins-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+
+.add-coins-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-coins-header h1 {
+  color: var(--primary);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.add-coins-header p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------
+   Main Card
+----------------------------------------- */
+
+.coins-card {
+  width: 100%;
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border);
+}
+
+/* -----------------------------------------
+   Coin display
+----------------------------------------- */
+
+.coins-display {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.coins-display-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.coins-display-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.coin-icon {
+  font-size: 36px;
+}
+
+/* -----------------------------------------
+   Horizontal Slider
+----------------------------------------- */
+
+.slider-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-labels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/*
+   Blue progress section behind
+   the slider.
+*/
+
+.slider-progress {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 0;
+  height: 8px;
+
+  background: var(--primary);
+  border-radius: 10px;
+
+  pointer-events: none;
+}
+
+/*
+   Horizontal range slider.
+*/
+
+.coins-slider {
+  position: absolute;
+
+  width: 100%;
+  height: 40px;
+
+  left: 0;
+  top: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: transparent;
+  cursor: pointer;
+
+  margin: 0;
+}
+
+/* Chrome / Edge / Safari */
+
+.coins-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.coins-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 28px;
+  height: 28px;
+
+  margin-top: -10px;
+
+  border-radius: 50%;
+  border: 4px solid var(--surface);
+  background: var(--primary);
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+
+  cursor: grab;
+}
+
+.coins-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+/* Firefox */
+
+.coins-slider::-moz-range-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.coins-slider::-moz-range-progress {
+  height: 8px;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.coins-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+  border: 4px solid var(--surface);
+  background: var(--primary);
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+
+  cursor: grab;
+}
+
+.slider-help {
+  color: var(--text-faint);
+  font-size: 13px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* -----------------------------------------
+   Purchase summary
+----------------------------------------- */
+
+.purchase-summary {
+  margin-top: 35px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.summary-row+.summary-row {
+  margin-top: 14px;
+}
+
+.summary-row strong {
+  color: var(--text);
+  font-size: 17px;
+}
+
+/* -----------------------------------------
+   Purchase button
+----------------------------------------- */
+
+.purchase-button {
+  width: 100%;
+  margin-top: 25px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--primary);
+  color: var(--surface);
+
+  padding: 15px 20px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.purchase-button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(11, 158, 236, 0.25);
+}
+
+.purchase-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.purchase-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* -----------------------------------------
+   Information
+----------------------------------------- */
+
+.coins-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  margin-top: 20px;
+  padding: 15px 18px;
+
+  border-radius: 12px;
+
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-border);
+}
+
+.info-icon {
+  color: var(--primary);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.coins-info p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------
+   Mobile
+----------------------------------------- */
+
+@media (max-width: 600px) {
+
+
+  .add-coins-page {
+    padding: 25px 15px;
+  }
+
+  .add-coins-header {
+    margin-bottom: 22px;
+  }
+
+  .add-coins-header h1 {
+    font-size: 27px;
+  }
+
+  .add-coins-header p {
+    font-size: 14px;
+  }
+
+  .coins-card {
+    padding: 25px 20px;
+    border-radius: 16px;
+  }
+
+  .coins-display {
+    margin-bottom: 25px;
+  }
+
+  .coins-display-value {
+    font-size: 36px;
+  }
+
+  .coin-icon {
+    font-size: 31px;
+  }
+
+  .slider-wrapper {
+    width: 100%;
+    height: 40px;
+  }
+
+  .coins-slider {
+    width: 100%;
+    height: 40px;
+    left: 0;
+    top: 0;
+  }
+
+  .slider-help {
+    font-size: 12px;
+  }
+
+  .purchase-button {
+    font-size: 15px;
+    padding: 14px 15px;
+  }
+}

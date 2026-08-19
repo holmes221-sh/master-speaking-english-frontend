@@ -1,0 +1,403 @@
+/* ==========================================================
+   PROFILE / HOME PAGE
+   Uses the design tokens defined in index.css.
+   ========================================================== */
+
+.page-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.logout-button {
+  translate: 0px -50px;
+}
+
+.overall-progress-button {
+  background: none;
+  border: none;
+}
+
+.last-evaluation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--primary);
+  background-color: var(--primary-soft);
+  height: fit-content;
+  width: 300px;
+  border-radius: 50px;
+}
+
+.statistics-flex {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  translate: -140px -75px;
+}
+
+/* ===========================
+        HEADER
+=========================== */
+
+.profile-header {
+  width: 100%;
+  background: var(--primary);
+  color: var(--surface);
+  padding: 20px 25px;
+  border-radius: 0 0 25px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 160px;
+}
+
+.header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+}
+
+.header-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--surface);
+}
+
+.profile-header p {
+  margin: 8px 0 12px;
+  font-weight: bold;
+  color: var(--surface);
+}
+
+/* ===========================
+        MENU BUTTON
+=========================== */
+
+.menu-button {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-button img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===========================
+        PROGRESS BAR
+=========================== */
+
+.progress-bar {
+  width: min(500px, 100%);
+  height: 28px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.filled-progress {
+  height: 100%;
+  background: var(--primary-dark);
+  border-radius: inherit;
+  transition: width 0.3s ease-in-out;
+}
+
+/* ===========================
+        MAP & LEVELS
+=========================== */
+
+.levels-map {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.level-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.level-0 {
+  transform: translateX(-60px);
+}
+
+.level-1 {
+  transform: translateX(60px);
+}
+
+.main-level-button {
+  width: 130px;
+  height: 130px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--surface);
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow:
+    0 8px 0 var(--primary-deep),
+    0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s ease;
+}
+
+.main-level-button:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 4px 0 var(--primary-deep),
+    0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+        SUB LEVELS
+=========================== */
+
+.sub-level-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.sub-level-button {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+  background: var(--surface);
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: inherit;
+  margin: 12px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+
+  padding: 0;
+}
+
+.sub-level-button h4 {
+  margin: 0;
+}
+
+.sub-level-button img {
+  height: 60%;
+  display: block;
+}
+
+.sub-0 {
+  transform: translateX(-35px);
+}
+
+.sub-1 {
+  transform: translateX(35px);
+}
+
+.current-sub-level {
+  background: var(--success-soft);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.more-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: var(--primary);
+  color: var(--surface);
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.more-button:hover {
+  background: var(--primary-dark);
+}
+
+.more-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===========================
+        STATISTICS
+=========================== */
+
+.track-circle {
+  height: 150px;
+  width: 150px;
+  border-radius: var(--radius-full);
+  background: var(--bg);
+}
+
+.progress-circle {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--radius-full);
+  align-items: center;
+  justify-content: center;
+}
+
+.centeral-circle {
+  height: 100px;
+  width: 100px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  text-align: center;
+  align-content: center;
+  color: var(--text);
+  box-shadow: var(--shadow-card);
+}
+
+.profile-coins-container {
+  width: fit-content;
+  translate: 70vw -200%;
+}
+
+/* ===========================
+        MOBILE DRAWER & MENU
+=========================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 260px;
+  height: 100vh;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  padding: 70px 20px 20px;
+  gap: 10px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu.open {
+  left: 0;
+  background-color: var(--primary-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+
+.statistics-flex-nav {
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===========================
+        MEDIA QUERIES
+=========================== */
+
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .header-inner .track-circle {
+    display: none;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header-text-group {
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .progress-bar {
+    width: 90%;
+  }
+
+  .main-level-button {
+    width: 100px;
+    height: 100px;
+    font-size: 1rem;
+  }
+
+  .sub-level-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .level-0 {
+    transform: translateX(-30px);
+  }
+
+  .level-1 {
+    transform: translateX(30px);
+  }
+
+  .profile-coins-container {
+    display: none;
+  }
+
+}
