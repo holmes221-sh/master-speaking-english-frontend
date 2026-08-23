@@ -1,7 +1,7 @@
 import { CheckYourEmailPage } from "./auth/CheckYourEmailPage";
 import { InvalidToken } from "./auth/InvalidToken";
 import { ResendVerification } from "./auth/ResendVerification";
-import { SignIn } from "./auth/sign-in";
+import { SignIn } from "./auth/Sign-In";
 import { SignUp } from "./auth/Sign-Up";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Profile } from "./profile/Profile";
