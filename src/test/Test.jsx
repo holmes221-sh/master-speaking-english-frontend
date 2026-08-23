@@ -15,7 +15,7 @@ export function Test() {
     const animationFrame = useRef(null);
     const [messageLoading, setMessageLoading] = useState(false);
     const [generalErrorValue, setGeneralErrorValue] = useState(null);
-    const [time, setTime] = useState(60)
+    const [time, setTime] = useState(300)
     const timerRef = useRef(null);
     const navigate = useNavigate();
     function displayTime(seconds) {
