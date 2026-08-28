@@ -1,0 +1,96 @@
+/* ==========================================================
+   INTRO PAGE
+   Uses the design tokens defined in index.css.
+   ========================================================== */
+
+.intro-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--primary-soft), var(--bg));
+}
+
+.intro-card {
+  background: var(--surface);
+  width: 100%;
+  max-width: 480px;
+  padding: 45px 40px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.intro-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 25px;
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+}
+
+.intro-title {
+  font-size: 32px;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.intro-subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.intro-features {
+  list-style: none;
+  text-align: left;
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+.intro-features li {
+  position: relative;
+  padding: 10px 10px 10px 34px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--primary-soft);
+}
+
+.intro-features li:last-child {
+  border-bottom: none;
+}
+
+.intro-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .intro-card {
+    padding: 35px 24px;
+  }
+
+  .intro-title {
+    font-size: 26px;
+  }
+
+  .intro-icon {
+    width: 75px;
+    height: 75px;
+    font-size: 36px;
+  }
+}

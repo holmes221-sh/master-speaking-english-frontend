@@ -13,6 +13,7 @@ import Confetti from 'react-confetti';
 import { Test } from "./test/Test";
 import { AddCoins } from "./payments/AddCoins";
 import { PaymentCallback } from "./payments/PaymentCallback";
+import { Intro } from "./intro/Intro";
 const API = import.meta.env.VITE_API_URL;
 export { API };
 function App() {
@@ -33,6 +34,7 @@ function App() {
       {showToast && showToast?.congrat && <Confetti />}
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Intro />} />
           <Route path="/auth/register" element={<SignUp />} />
           <Route path="/auth/login" element={<SignIn />} />
           <Route path="/auth/test" element={<Test/>} />
